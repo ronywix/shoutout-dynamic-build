@@ -1,4 +1,23 @@
-PROJECT="com.wix.shoutout.titanium.app-alpha"
+PROJECT="com.wix.shoutout.titanium.app-beta"
+if [ $PROJECT == com.wix.shoutout.titanium.app-alpha ]; then
+    echo "dev version - continue..."
+elif [ $PROJECT == com.wix.shoutout.titanium.app-beta ]; then
+    echo "This will upload code to beta repository. please enter beta code:"
+    read CODE
+    if [ "$CODE" != "beta_upload" ]; then
+        echo "ERROR... wrong password beta upload"
+        exit 1
+    fi
+else
+    echo "This will upload code to production repository. please enter production code:"
+    read CODE
+    if [ "$CODE" != "prod_upload" ]; then
+        echo "ERROR... wrong password production upload"
+        exit 1
+    fi
+fi
+
+echo "START BUILD.SH"
 TIMESTAMP=$(date +%s)
 VERSION="1.0"
 VERSION="${VERSION}.${TIMESTAMP}";
