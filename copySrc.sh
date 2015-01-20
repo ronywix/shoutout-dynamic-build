@@ -7,3 +7,5 @@ rm -rf ./src/bgs
 rm -rf ./src/icons
 rm -rf ./src/fonts
 rm -rf ./src/skins
+
+node replaceRequire.js
